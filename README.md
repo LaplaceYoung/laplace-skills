@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
 
 # Laplace Skills
 
@@ -105,7 +105,7 @@ laplace-skills/
 │  ├─ ATTRIBUTION.md
 │  └─ LICENSE
 ├─ .gitignore
-└─ readme.md
+└─ README.md
 ```
 
 ---
@@ -146,3 +146,4 @@ laplace-skills/
 - 署名说明：见 [`./design-brand-system/ATTRIBUTION.md`](./design-brand-system/ATTRIBUTION.md)
 
 > 说明：相关品牌名称、商标与视觉识别系统归各自权利人所有；本仓库仅对公开可见的设计特征进行学习、整理与 skill 化封装，不主张其品牌所有权。
+
