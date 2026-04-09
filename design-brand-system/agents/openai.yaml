@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Brand System"
+  short_description: "Translate brand-inspired UI systems."
+  default_prompt: "Use $design-brand-system to turn a brand style into concrete UI guidance."
