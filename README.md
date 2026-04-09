@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 # Laplace Skills
 
@@ -7,7 +7,8 @@
 记录我自己创作、持续优化、并真正投入日常使用的 skills。  
 目标不是“收集很多”，而是沉淀 **高复用、强实用、可长期维护** 的技能资产。
 
-[![Skills](https://img.shields.io/badge/skills-1-7c3aed?style=flat-square)](./design-brand-system)
+[![Skill Packs](https://img.shields.io/badge/skill_packs-2-0f766e?style=flat-square)](./)
+[![AI PM Suite](https://img.shields.io/badge/ai_pm_suite-8_workflows-2563eb?style=flat-square)](./ai-pm-skills-suite)
 [![Status](https://img.shields.io/badge/status-active-22c55e?style=flat-square)](https://github.com/LaplaceYoung/laplace-skills)
 [![Upstream License](https://img.shields.io/badge/upstream-MIT-10b981?style=flat-square)](./design-brand-system/LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/LaplaceYoung/laplace-skills?style=flat-square)](https://github.com/LaplaceYoung/laplace-skills)
@@ -36,13 +37,16 @@
 
 ## Skill Index
 
-| Skill | Description | Highlights | Status | Source |
+| Pack | Description | Highlights | Status | Source |
 | --- | --- | --- | --- | --- |
 | [`design-brand-system`](./design-brand-system) | 把具体品牌/产品的视觉语言翻译成可执行的 UI 指南、设计约束与实现方向 | 60+ 品牌参考、品牌氛围 shortlist、OpenAI agent preset | ✅ Ready | Adapted from [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) · MIT |
+| [`ai-pm-skills-suite`](./ai-pm-skills-suite) | 面向 AI 产品经理工作的本地 workflow skills 套件，把 discovery、PRD、评审、优先级、会议、KPI、上线复盘沉淀为结构化产物 | 8 个原创 skills、治理规则、脱敏参考资料、样例输入、备份/恢复脚本 | 🚧 Active v0.1 | Original |
 
 ---
 
-## First Skill: `design-brand-system`
+## Featured Packs
+
+### `design-brand-system`
 
 `design-brand-system` 用来把一个品牌的视觉风格，转换成另一个 agent 或开发者可以直接落地的设计规则。
 
@@ -61,15 +65,49 @@
 
 ---
 
+### `ai-pm-skills-suite`
+
+`ai-pm-skills-suite` 是一套面向 AI Product Manager 工作流的本地技能包，用来把零散材料整理成可评审、可协作、可追踪的产品产物。
+
+覆盖场景包括：
+
+- discovery 与需求澄清
+- PRD 编写与工程对齐
+- 实验 / 试运行 / 评审结论整理
+- roadmap prioritization 与版本编排
+- 会议纪要、决策和行动项提炼
+- KPI / 漏斗 / 异常指标分析
+- 上线复盘与后续改进行动
+
+当前包含 8 个原创技能：
+
+- `01-discovery-research`
+- `02-prd-spec-generation`
+- `03-evaluation-experiment-review`
+- `04-roadmap-prioritization`
+- `05-meeting-review-synthesis`
+- `06-kpi-analytics`
+- `07-launch-retro`
+- `08-shared-utilities`
+
+同时提供：
+
+- `references/`：技能治理规范、rubric、checklist、playbook
+- `examples/sample-inputs/`：可直接拿来 dry-run 的样例材料
+- `scripts/`：元数据校验、backup / restore 脚本
+- `workspace/`：维护该套件时的审阅记录、清理说明与变更日志
+
+---
+
 ## How to use
 
 ### 1. 浏览仓库
 
-先从根目录查看已有 skills，再进入目标 skill 文件夹。
+先从根目录查看已有 skill pack，再进入目标目录。
 
 ### 2. 读取 skill 入口
 
-每个 skill 的核心入口是对应目录下的 `SKILL.md`。
+每个 skill pack 都有自己的入口文档；具体 skill 则以对应目录下的 `SKILL.md` 为核心入口。
 
 ### 3. 按需加载引用内容
 
@@ -78,6 +116,13 @@
 1. 先看 `references/index.md`
 2. 只打开当前任务真正需要的品牌参考文件
 3. 把品牌语言翻译成可执行的实现指导，而不是原文照搬
+
+以 `ai-pm-skills-suite` 为例：
+
+1. 先进入目标技能目录
+2. 打开该技能的 `SKILL.md`
+3. 只按需读取该技能自己的 `references/`
+4. 需要统一格式或评分标准时，再复用套件级 `references/`
 
 ### 4. 示例用法
 
@@ -89,12 +134,37 @@ Use $design-brand-system to turn Linear's style into a landing page system.
 Give me 3 brand candidates for a premium AI product homepage, then extract one into build-ready UI rules.
 ```
 
+```text
+Use ai-pm-skills-suite/skills/02-prd-spec-generation to turn meeting notes and scattered requirements into an executable PRD.
+```
+
+```text
+Use ai-pm-skills-suite/skills/06-kpi-analytics to analyze a drop in activation and turn it into a decision memo.
+```
+
 ---
 
 ## Repository Structure
 
 ```text
 laplace-skills/
+├─ ai-pm-skills-suite/
+│  ├─ README.md
+│  ├─ examples/
+│  │  └─ sample-inputs/
+│  ├─ references/
+│  ├─ scripts/
+│  ├─ skills/
+│  │  ├─ 01-discovery-research/
+│  │  ├─ 02-prd-spec-generation/
+│  │  ├─ 03-evaluation-experiment-review/
+│  │  ├─ 04-roadmap-prioritization/
+│  │  ├─ 05-meeting-review-synthesis/
+│  │  ├─ 06-kpi-analytics/
+│  │  ├─ 07-launch-retro/
+│  │  └─ 08-shared-utilities/
+│  ├─ templates/
+│  └─ workspace/
 ├─ design-brand-system/
 │  ├─ SKILL.md
 │  ├─ agents/
@@ -123,7 +193,7 @@ laplace-skills/
 
 ## Acknowledgements
 
-当前仓库中的首个 skill：
+当前仓库中的适配型 skill pack：
 
 - [`design-brand-system`](./design-brand-system) 改编自 [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)
 
@@ -145,5 +215,9 @@ laplace-skills/
 - 完整许可证文本：见 [`./design-brand-system/LICENSE`](./design-brand-system/LICENSE)
 - 署名说明：见 [`./design-brand-system/ATTRIBUTION.md`](./design-brand-system/ATTRIBUTION.md)
 
-> 说明：相关品牌名称、商标与视觉识别系统归各自权利人所有；本仓库仅对公开可见的设计特征进行学习、整理与 skill 化封装，不主张其品牌所有权。
+对于 `ai-pm-skills-suite`：
 
+- 当前内容为原创本地 workflow skills 套件
+- 若后续引入外部模板、参考或改编材料，会在对应目录单独标注来源与许可
+
+> 说明：相关品牌名称、商标与视觉识别系统归各自权利人所有；本仓库仅对公开可见的设计特征进行学习、整理与 skill 化封装，不主张其品牌所有权。
