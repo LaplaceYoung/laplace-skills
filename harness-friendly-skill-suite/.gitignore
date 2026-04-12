@@ -1,0 +1,32 @@
+﻿# Python
+__pycache__/
+*.pyc
+
+# Internal planning / local agent traces
+.omx/
+
+# Runtime loop artifacts
+.harness/artifacts/*
+!.harness/artifacts/.gitkeep
+.harness/checkpoints/*
+!.harness/checkpoints/.gitkeep
+.harness/context/*
+!.harness/context/.gitkeep
+.harness/logs/*
+!.harness/logs/.gitkeep
+.harness/plans/*
+!.harness/plans/.gitkeep
+.harness/runs/*
+!.harness/runs/.gitkeep
+.harness/state/*
+!.harness/state/.gitkeep
+!.harness/state/loop-state.template.json
+
+# Human-facing generated reports
+reports/*.json
+reports/*.md
+!reports/.gitkeep
+
+# Local env
+.env
+.env.*

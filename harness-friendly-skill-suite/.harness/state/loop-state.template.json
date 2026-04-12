@@ -1,0 +1,13 @@
+﻿{
+  "mode": "harness-loop",
+  "active": false,
+  "current_phase": "idle",
+  "last_run_id": null,
+  "updated_at": null,
+  "state": {
+    "repo": ".",
+    "artifacts": {},
+    "approval_required": [],
+    "notes": []
+  }
+}

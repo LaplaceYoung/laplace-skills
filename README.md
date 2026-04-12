@@ -7,7 +7,7 @@
 记录我自己创作、持续优化、并真正投入日常使用的 skills。  
 目标不是“收集很多”，而是沉淀 **高复用、强实用、可长期维护** 的技能资产。
 
-[![Skill Packs](https://img.shields.io/badge/skill_packs-2-0f766e?style=flat-square)](./)
+[![Skill Packs](https://img.shields.io/badge/skill_packs-3-0f766e?style=flat-square)](./)
 [![AI PM Suite](https://img.shields.io/badge/ai_pm_suite-8_workflows-2563eb?style=flat-square)](./ai-pm-skills-suite)
 [![Status](https://img.shields.io/badge/status-active-22c55e?style=flat-square)](https://github.com/LaplaceYoung/laplace-skills)
 [![Upstream License](https://img.shields.io/badge/upstream-MIT-10b981?style=flat-square)](./design-brand-system/LICENSE)
@@ -41,6 +41,7 @@
 | --- | --- | --- | --- | --- |
 | [`design-brand-system`](./design-brand-system) | 把具体品牌/产品的视觉语言翻译成可执行的 UI 指南、设计约束与实现方向 | 60+ 品牌参考、品牌氛围 shortlist、OpenAI agent preset | ✅ Ready | Adapted from [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) · MIT |
 | [`ai-pm-skills-suite`](./ai-pm-skills-suite) | 面向 AI 产品经理工作的本地 workflow skills 套件，把 discovery、PRD、评审、优先级、会议、KPI、上线复盘沉淀为结构化产物 | 8 个原创 skills、治理规则、脱敏参考资料、样例输入、备份/恢复脚本 | 🚧 Active v0.1 | Original |
+| [`harness-friendly-skill-suite`](./harness-friendly-skill-suite) | 面向 Codex / agent 仓库改造的 harness-first skill pack，把 inventory、protected areas、adaptation plan、low-risk execution 和 resumable runtime loop 串成可执行框架 | `.harness/` 运行内核、checkpoint resume、delta evaluator、low-risk executor、artifact-first loop | 🚧 Active v0.2 | Original |
 
 ---
 
@@ -99,6 +100,31 @@
 
 ---
 
+### `harness-friendly-skill-suite`
+
+`harness-friendly-skill-suite` 是一套面向 **agent 仓库适配 / harness engineering** 的本地技能包，目标是把一个仓库整理成更适合 Codex / agents 理解、评估、低风险修改和持续运行的结构。
+
+覆盖场景包括：
+
+- repo inventory 与入口发现
+- protected areas / approval-required 区域识别
+- adaptation plan 生成
+- dry-run rename planning
+- low-risk adaptation execution
+- evaluator / delta evaluator
+- checkpoint-based resume
+
+当前包含：
+
+- `scripts/`：完整 harness loop 与辅助分析/执行器
+- `skills/`：harness adaptation 相关技能入口
+- `docs/harness-suite/`：架构、runbook、governance、best practices
+- `.harness/`：运行内核模板与占位结构
+- `templates/`：inventory / protected-areas / adaptation-plan / change-trace 模板
+- `examples/`：greenfield / brownfield 示例占位
+
+---
+
 ## How to use
 
 ### 1. 浏览仓库
@@ -148,6 +174,17 @@ Use ai-pm-skills-suite/skills/06-kpi-analytics to analyze a drop in activation a
 
 ```text
 laplace-skills/
+├─ harness-friendly-skill-suite/
+│  ├─ README.md
+│  ├─ AGENTS.md
+│  ├─ .harness/
+│  ├─ docs/
+│  ├─ examples/
+│  ├─ plugins/
+│  ├─ reports/
+│  ├─ scripts/
+│  ├─ skills/
+│  └─ templates/
 ├─ ai-pm-skills-suite/
 │  ├─ README.md
 │  ├─ examples/
