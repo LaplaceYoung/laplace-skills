@@ -1,0 +1,4 @@
+interface:
+  display_name: "FeasibilityAI Offline Writer"
+  short_description: "Offline feasibility writing prompt workflow"
+  default_prompt: "Use $feasibility-ai-offline-writer to draft, review, or structure feasibility-study content from the recovered prompt corpus."

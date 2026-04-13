@@ -7,7 +7,7 @@
 记录我自己创作、持续优化、并真正投入日常使用的 skills。  
 目标不是“收集很多”，而是沉淀 **高复用、强实用、可长期维护** 的技能资产。
 
-[![Skill Packs](https://img.shields.io/badge/skill_packs-3-0f766e?style=flat-square)](./)
+[![Skill Packs](https://img.shields.io/badge/skill_packs-4-0f766e?style=flat-square)](./)
 [![AI PM Suite](https://img.shields.io/badge/ai_pm_suite-8_workflows-2563eb?style=flat-square)](./ai-pm-skills-suite)
 [![Status](https://img.shields.io/badge/status-active-22c55e?style=flat-square)](https://github.com/LaplaceYoung/laplace-skills)
 [![Upstream License](https://img.shields.io/badge/upstream-MIT-10b981?style=flat-square)](./design-brand-system/LICENSE)
@@ -42,6 +42,7 @@
 | [`design-brand-system`](./design-brand-system) | 把具体品牌/产品的视觉语言翻译成可执行的 UI 指南、设计约束与实现方向 | 60+ 品牌参考、品牌氛围 shortlist、OpenAI agent preset | ✅ Ready | Adapted from [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) · MIT |
 | [`ai-pm-skills-suite`](./ai-pm-skills-suite) | 面向 AI 产品经理工作的本地 workflow skills 套件，把 discovery、PRD、评审、优先级、会议、KPI、上线复盘沉淀为结构化产物 | 8 个原创 skills、治理规则、脱敏参考资料、样例输入、备份/恢复脚本 | 🚧 Active v0.1 | Original |
 | [`harness-friendly-skill-suite`](./harness-friendly-skill-suite) | 面向 Codex / agent 仓库改造的 harness-first skill pack，把 inventory、protected areas、adaptation plan、low-risk execution 和 resumable runtime loop 串成可执行框架 | `.harness/` 运行内核、checkpoint resume、delta evaluator、low-risk executor、artifact-first loop | 🚧 Active v0.2 | Original |
+| [`feasibility-ai-offline-writer`](./feasibility-ai-offline-writer) | Offline skill pack for recovered feasibility-study writing prompts, review prompts, expert roles, and outline templates. | `system/tasks/review/scheme/experts` prompt groups, prompt lookup script, outline selector, offline corpus assets | Active v0.1 | Original |
 
 ---
 
@@ -211,6 +212,18 @@ laplace-skills/
 │  │  └─ *.md
 │  ├─ ATTRIBUTION.md
 │  └─ LICENSE
+├─ feasibility-ai-offline-writer/
+│  ├─ SKILL.md
+│  ├─ agents/
+│  │  └─ openai.yaml
+│  ├─ assets/
+│  │  ├─ prompts.json
+│  │  └─ outlines.json
+│  ├─ references/
+│  │  └─ *.md
+│  ├─ scripts/
+│  │  └─ *.py
+│  └─ ATTRIBUTION.md
 ├─ .gitignore
 └─ README.md
 ```
