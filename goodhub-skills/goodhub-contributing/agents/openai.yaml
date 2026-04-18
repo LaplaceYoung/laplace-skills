@@ -1,0 +1,3 @@
+display_name: "GoodHub Contributing"
+short_description: "CONTRIBUTING.md writing and contribution-process design for GitHub repositories. Use when Codex needs to create or impro"
+default_prompt: "Create a practical CONTRIBUTING.md for this repository."

@@ -1,0 +1,50 @@
+﻿[
+  {
+    "id": "daily_001",
+    "scene": "daily-chat",
+    "input": "Please be informed that your request is currently under processing.",
+    "goal": "natural reply"
+  },
+  {
+    "id": "daily_002",
+    "scene": "daily-chat",
+    "input": "I am not available at this point in time.",
+    "goal": "simple and warm"
+  },
+  {
+    "id": "social_001",
+    "scene": "social-post",
+    "input": "We launched a new version with many improvements.",
+    "goal": "concrete launch post"
+  },
+  {
+    "id": "social_002",
+    "scene": "social-post",
+    "input": "Consistency is very important in product development.",
+    "goal": "opinion post"
+  },
+  {
+    "id": "academic_001",
+    "scene": "academic-writing",
+    "input": "This paper proposes a new method and achieves great performance.",
+    "goal": "precise academic tone"
+  },
+  {
+    "id": "academic_002",
+    "scene": "academic-writing",
+    "input": "Our experiment shows superior results on all datasets.",
+    "goal": "remove overclaim"
+  },
+  {
+    "id": "longform_001",
+    "scene": "longform-writing",
+    "input": "People miss old times because life was simpler.",
+    "goal": "expand into layered essay"
+  },
+  {
+    "id": "rewrite_001",
+    "scene": "rewrite-paraphrase",
+    "input": "In conclusion, this initiative is very important and should be prioritized immediately.",
+    "goal": "remove template phrasing"
+  }
+]

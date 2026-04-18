@@ -1,0 +1,3 @@
+display_name: "GoodHub"
+short_description: "GitHub workflow router and repository-writing guide. Use when Codex needs to decide whether a task is best handled as RE"
+default_prompt: "Help me choose the right GitHub writing or repo-governance workflow."

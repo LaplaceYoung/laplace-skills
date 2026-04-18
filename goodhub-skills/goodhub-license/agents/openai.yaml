@@ -1,0 +1,3 @@
+display_name: "GoodHub License"
+short_description: "Open-source license selection and license-file writing for GitHub repositories. Use when Codex needs to recommend a soft"
+default_prompt: "Recommend and write the right open-source license file for this repo."

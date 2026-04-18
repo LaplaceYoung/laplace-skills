@@ -1,0 +1,3 @@
+display_name: "GoodHub Readme"
+short_description: "README writing and polishing for GitHub repositories. Use when Codex needs to create or rewrite a README, add badges, ad"
+default_prompt: "Rewrite or create a polished GitHub README for this repository."

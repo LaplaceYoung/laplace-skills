@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "Humanvoice Studio"
+  short_description: "Humanize writing across scenes with dedicated Chinese optimization."
+  default_prompt: "Use $humanvoice-studio to rewrite this text in a natural human voice, with Chinese scene optimization when applicable."

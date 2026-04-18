@@ -1,0 +1,62 @@
+﻿[
+  {
+    "id": "zh_daily_001",
+    "scene": "zh-daily-chat",
+    "input": "请知悉，您的申请目前处于处理中，请耐心等候后续通知。",
+    "goal": "改为自然中文回复"
+  },
+  {
+    "id": "zh_daily_002",
+    "scene": "zh-daily-chat",
+    "input": "由于我目前时间安排冲突，故暂无法参加该活动。",
+    "goal": "礼貌但不官腔"
+  },
+  {
+    "id": "zh_social_001",
+    "scene": "zh-social-post",
+    "input": "我们上线了新版，体验更好，欢迎大家使用。",
+    "goal": "小红书风格，具体细节"
+  },
+  {
+    "id": "zh_social_002",
+    "scene": "zh-social-post",
+    "input": "坚持长期主义对团队很重要。",
+    "goal": "公众号短文开头"
+  },
+  {
+    "id": "zh_academic_001",
+    "scene": "zh-academic-writing",
+    "input": "该方法是当前最优方法，并且在所有场景都有效。",
+    "goal": "避免绝对判断与定义句"
+  },
+  {
+    "id": "zh_academic_002",
+    "scene": "zh-academic-writing",
+    "input": "所谓高效模型就是在任何任务上都表现最好的模型。",
+    "goal": "去定义式句法"
+  },
+  {
+    "id": "zh_longform_001",
+    "scene": "zh-longform-writing",
+    "input": "主题：怀旧，其实是怀念青春。",
+    "goal": "600字通俗长文，plain_cn"
+  },
+  {
+    "id": "zh_longform_002",
+    "scene": "zh-longform-writing",
+    "input": "将现有英文怀旧文章改写为中文，语气温润克制。",
+    "goal": "bingxin_lite 模式"
+  },
+  {
+    "id": "zh_rewrite_001",
+    "scene": "zh-rewrite-paraphrase",
+    "input": "综上所述，本次工作非常重要且具有里程碑意义。",
+    "goal": "去模板结尾"
+  },
+  {
+    "id": "zh_rewrite_002",
+    "scene": "zh-rewrite-paraphrase",
+    "input": "在当前阶段，我们在多个维度上进行了系统性推进。",
+    "goal": "改为具体中文"
+  }
+]

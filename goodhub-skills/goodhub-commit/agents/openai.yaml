@@ -1,0 +1,3 @@
+display_name: "GoodHub Commit"
+short_description: "Commit message editing and commit-plan writing for GitHub repositories. Use when Codex needs to write or improve commit "
+default_prompt: "Write a clean commit message or commit plan for these changes."

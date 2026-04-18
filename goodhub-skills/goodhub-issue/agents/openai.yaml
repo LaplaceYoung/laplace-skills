@@ -1,0 +1,3 @@
+display_name: "GoodHub Issue"
+short_description: "Issue writing and issue-template authoring for GitHub repositories. Use when Codex needs to write bug reports, feature r"
+default_prompt: "Write an actionable GitHub issue or issue template."

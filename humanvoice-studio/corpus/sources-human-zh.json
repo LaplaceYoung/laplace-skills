@@ -1,0 +1,73 @@
+﻿{
+    "updated":  "2026-04-18",
+    "note":  "Seed corpus sources intended for human-written Chinese prose/fiction. Verify copyright and usage before redistribution.",
+    "sources":  [
+                    {
+                        "id":  "wikisource_liaozhai",
+                        "type":  "wikisource",
+                        "title":  "聊斋志异",
+                        "url":  "https://zh.wikisource.org/zh-hans/%E8%81%8A%E9%BD%8B%E8%AA%8C%E7%95%B0",
+                        "license_hint":  "Public domain literature; site terms apply"
+                    },
+                    {
+                        "id":  "wikisource_nahan_yijianxiaoshi",
+                        "type":  "wikisource",
+                        "title":  "一件小事（鲁迅）",
+                        "url":  "https://zh.wikisource.org/zh-hans/%E4%B8%80%E4%BB%B6%E5%B0%8F%E4%BA%8B_%281919%E5%B9%B4%E6%99%A8%E5%A0%B1%E6%9C%AC%29",
+                        "license_hint":  "Modern Chinese prose reference"
+                    },
+                    {
+                        "id":  "wikisource_classic_portal",
+                        "type":  "wikisource",
+                        "title":  "中国古代小说集（入口）",
+                        "url":  "https://zh.wikisource.org/zh-hans/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%B0%8F%E8%AF%B4%E9%9B%86",
+                        "license_hint":  "Index for expanding corpus"
+                    },
+                    {
+                        "id":  "gutenberg_romance_threek",
+                        "type":  "gutenberg",
+                        "title":  "Romance of the Three Kingdoms (English translation)",
+                        "url":  "https://www.gutenberg.org/ebooks/23907",
+                        "license_hint":  "Public domain English narrative rhythm reference"
+                    }
+                ],
+    "github_experience_refs":  [
+                                   {
+                                       "id":  "talk_normal",
+                                       "url":  "https://github.com/hexiecs/talk-normal",
+                                       "what_to_extract":  "template suppression, directness constraints, anti-summary endings"
+                                   },
+                                   {
+                                       "id":  "ai_humanizer",
+                                       "url":  "https://github.com/Firdavs-coder/ai_humanizer",
+                                       "what_to_extract":  "post-processing loop, variation controls, detection-check feedback"
+                                   },
+                                   {
+                                       "id":  "ai_humanizer_mcp",
+                                       "url":  "https://github.com/Text2Go/ai-humanizer-mcp-server",
+                                       "what_to_extract":  "pipeline-style integration for rewrite+check"
+                                   }
+                               ],
+    "x_notes":  [
+                    "Collect only manually reviewed X posts/threads with concrete examples.",
+                    "Store permalink + date + claim + reproducibility note in workspace/x-notes.md before using in rules.",
+                    "Do not use anonymous snippets or unverifiable screenshots as hard rules."
+                ],
+    "x_experience_refs":  [
+                              {
+                                  "id":  "x_emollick_detector_false_positive",
+                                  "url":  "https://x.com/emollick/status/1679958386199101445",
+                                  "use":  "context only"
+                              },
+                              {
+                                  "id":  "x_garymarcus_openai_detector",
+                                  "url":  "https://x.com/GaryMarcus/status/1684415274500644867",
+                                  "use":  "context only"
+                              },
+                              {
+                                  "id":  "x_feizi_detection_robustness",
+                                  "url":  "https://x.com/FeiziSoheil/status/1820525383436874106",
+                                  "use":  "context only"
+                              }
+                          ]
+}
