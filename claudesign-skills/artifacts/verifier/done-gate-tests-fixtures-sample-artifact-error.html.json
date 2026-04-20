@@ -1,0 +1,10 @@
+{
+  "path": "tests/fixtures/sample-artifact/error.html",
+  "previewSessionId": "preview-74657374732f",
+  "status": "error",
+  "consoleErrors": [
+    "Forced console error marker found"
+  ],
+  "screenshots": [],
+  "generatedAt": "2026-04-20T15:27:17.228Z"
+}

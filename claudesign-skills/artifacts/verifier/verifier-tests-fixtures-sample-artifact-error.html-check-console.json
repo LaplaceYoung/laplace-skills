@@ -1,0 +1,12 @@
+{
+  "path": "tests/fixtures/sample-artifact/error.html",
+  "mode": "directed",
+  "verdict": "fail",
+  "findings": [
+    "Forced console error marker found"
+  ],
+  "task": "check console",
+  "previewSessionId": "preview-74657374732f",
+  "doneGateReportPath": "artifacts/verifier/done-gate-tests-fixtures-sample-artifact-error.html.json",
+  "generatedAt": "2026-04-20T15:27:17.232Z"
+}

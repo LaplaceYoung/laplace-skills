@@ -1,4 +1,6 @@
-﻿import type {
+﻿import fs from 'node:fs';
+
+import type {
   BuildQuestionsReq,
   BuildQuestionsResp,
   DoneGateReq,
@@ -82,7 +84,7 @@ export async function runDoneGateContract(input: DoneGateReq & { path: string })
     commandId: 'verify.done_gate.v1',
     status: result.status === 'clean' ? 'pass' : 'fail',
     findings: result.consoleErrors,
-    reportPath: 'artifacts/contracts/contract-diff-report.json'
+    reportPath: result.reportPath
   };
 }
 
@@ -99,6 +101,10 @@ export async function runVerifierContract(input: RunVerifierReq & { path: string
     commandId: 'verify.run.v1',
     verdict: result.verdict,
     issues,
-    reportPath: 'artifacts/contracts/contract-diff-report.json'
+    reportPath: result.reportPath
   };
+}
+
+export function reportExists(reportPath: string): boolean {
+  return fs.existsSync(reportPath);
 }
