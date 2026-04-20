@@ -7,6 +7,8 @@ import type {
   BundleHtmlResp,
   BuildQuestionsReq,
   BuildQuestionsResp,
+  CreateArtifactReq,
+  CreateArtifactResp,
   DoneGateReq,
   DoneGateResp,
   ExportPdfReq,
@@ -34,6 +36,17 @@ import { bundleStandaloneHtml } from '../exports/bundle-standalone.js';
 import { generatePptx } from '../exports/gen-pptx.js';
 import { openForPrint } from '../exports/open-for-print.js';
 import { registerAssets, unregisterAssets } from '../asset-registry/registry.js';
+import { createArtifact } from '../artifacts/create-artifact.js';
+
+function normalizeProjectId(projectId: string) {
+  const normalized = projectId.trim();
+
+  if (normalized.length === 0) {
+    throw new Error('projectId must contain at least one visible character');
+  }
+
+  return normalized;
+}
 
 export function buildQuestionsContract(input: BuildQuestionsReq): BuildQuestionsResp {
   const schema = buildDesignQuestionSchema();
@@ -62,7 +75,7 @@ export function saveTemplateContract(input: SaveTemplateReq): SaveTemplateResp {
 export async function registerAssetsContract(
   input: RegisterAssetsReq
 ): Promise<RegisterAssetsResp> {
-  const result = await registerAssets(input.projectId, input.assets);
+  const result = await registerAssets(normalizeProjectId(input.projectId), input.assets);
 
   return {
     correlationId: input.correlationId,
@@ -74,12 +87,32 @@ export async function registerAssetsContract(
 export async function unregisterAssetsContract(
   input: UnregisterAssetsReq
 ): Promise<UnregisterAssetsResp> {
-  const result = await unregisterAssets(input.projectId, input.assetIds);
+  const result = await unregisterAssets(normalizeProjectId(input.projectId), input.assetIds);
 
   return {
     correlationId: input.correlationId,
     commandId: 'assets.unregister.v1',
     removedAssetIds: result.removedAssetIds
+  };
+}
+
+export async function createArtifactContract(
+  input: CreateArtifactReq
+): Promise<CreateArtifactResp> {
+  const projectId = normalizeProjectId(input.projectId);
+  const result = await createArtifact({
+    projectId,
+    artifactKind: input.artifactKind,
+    entryHtml: input.entryHtml,
+    assetIds: input.assetIds
+  });
+
+  return {
+    correlationId: input.correlationId,
+    commandId: 'artifact.create.v1',
+    artifactId: result.artifactId,
+    manifestPath: result.manifestPath,
+    createdAt: result.createdAt
   };
 }
 
