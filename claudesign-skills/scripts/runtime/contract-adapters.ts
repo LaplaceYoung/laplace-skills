@@ -1,6 +1,8 @@
 ﻿import fs from 'node:fs';
 
 import type {
+  RegisterAssetsReq,
+  RegisterAssetsResp,
   BundleHtmlReq,
   BundleHtmlResp,
   BuildQuestionsReq,
@@ -19,6 +21,8 @@ import type {
   RunVerifierResp,
   SaveTemplateReq,
   SaveTemplateResp,
+  UnregisterAssetsReq,
+  UnregisterAssetsResp,
   VerifierIssue
 } from '../../packages/contracts/src/commands.js';
 
@@ -29,6 +33,7 @@ import { buildDesignQuestionSchema } from '../questions/build-question-schema.js
 import { bundleStandaloneHtml } from '../exports/bundle-standalone.js';
 import { generatePptx } from '../exports/gen-pptx.js';
 import { openForPrint } from '../exports/open-for-print.js';
+import { registerAssets, unregisterAssets } from '../asset-registry/registry.js';
 
 export function buildQuestionsContract(input: BuildQuestionsReq): BuildQuestionsResp {
   const schema = buildDesignQuestionSchema();
@@ -51,6 +56,30 @@ export function saveTemplateContract(input: SaveTemplateReq): SaveTemplateResp {
     templateId: `${input.projectId}:${input.templateName}`,
     version: 1,
     savedAt: new Date().toISOString()
+  };
+}
+
+export async function registerAssetsContract(
+  input: RegisterAssetsReq
+): Promise<RegisterAssetsResp> {
+  const result = await registerAssets(input.projectId, input.assets);
+
+  return {
+    correlationId: input.correlationId,
+    commandId: 'assets.register.v1',
+    registered: result.registered
+  };
+}
+
+export async function unregisterAssetsContract(
+  input: UnregisterAssetsReq
+): Promise<UnregisterAssetsResp> {
+  const result = await unregisterAssets(input.projectId, input.assetIds);
+
+  return {
+    correlationId: input.correlationId,
+    commandId: 'assets.unregister.v1',
+    removedAssetIds: result.removedAssetIds
   };
 }
 
