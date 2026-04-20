@@ -1,0 +1,5 @@
+﻿{
+  "name": "claude-design-runtime",
+  "version": "0.1.0",
+  "description": "Runtime intake and template commands for Claude Design parity"
+}

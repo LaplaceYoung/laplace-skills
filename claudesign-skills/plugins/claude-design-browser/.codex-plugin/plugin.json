@@ -1,0 +1,6 @@
+﻿{
+  "name": "claude-design-browser",
+  "version": "0.1.0",
+  "description": "Browser preview, done gate, screenshot, and verifier commands",
+  "commands": ["open-preview", "done-gate", "run-verifier"]
+}

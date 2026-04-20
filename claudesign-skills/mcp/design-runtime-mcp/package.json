@@ -1,0 +1,11 @@
+﻿{
+  "name": "design-runtime-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/server.js",
+  "types": "dist/server.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  }
+}

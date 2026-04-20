@@ -5,4 +5,5 @@ artifacts/*
 !artifacts/contracts/
 !artifacts/contracts/*.json
 !artifacts/contracts/README.md
+tmp/
 *.tsbuildinfo
