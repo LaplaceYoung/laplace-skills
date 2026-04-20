@@ -1,5 +1,10 @@
 ﻿{
   "name": "claude-design-artifacts",
   "version": "0.1.0",
-  "description": "Artifact scaffolding commands for Claude Design parity"
+  "description": "Artifact scaffolding commands for Claude Design parity",
+  "commands": [
+    "artifact.create.v1",
+    "assets.register.v1",
+    "assets.unregister.v1"
+  ]
 }

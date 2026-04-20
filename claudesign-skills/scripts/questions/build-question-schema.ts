@@ -23,5 +23,5 @@
         title: 'Primary goal'
       }
     ]
-  };
+  } as const;
 }
