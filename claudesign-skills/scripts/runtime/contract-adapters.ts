@@ -1,10 +1,16 @@
 ﻿import fs from 'node:fs';
 
 import type {
+  BundleHtmlReq,
+  BundleHtmlResp,
   BuildQuestionsReq,
   BuildQuestionsResp,
   DoneGateReq,
   DoneGateResp,
+  ExportPdfReq,
+  ExportPdfResp,
+  ExportPptxReq,
+  ExportPptxResp,
   InspectPreviewResp,
   OpenPreviewReq,
   OpenPreviewResp,
@@ -20,6 +26,9 @@ import { openPreview } from '../preview/preview-open.js';
 import { runDoneGate } from '../preview/done-gate.js';
 import { runVerifier } from '../verifier/run-verifier.js';
 import { buildDesignQuestionSchema } from '../questions/build-question-schema.js';
+import { bundleStandaloneHtml } from '../exports/bundle-standalone.js';
+import { generatePptx } from '../exports/gen-pptx.js';
+import { openForPrint } from '../exports/open-for-print.js';
 
 export function buildQuestionsContract(input: BuildQuestionsReq): BuildQuestionsResp {
   const schema = buildDesignQuestionSchema();
@@ -102,6 +111,56 @@ export async function runVerifierContract(input: RunVerifierReq & { path: string
     verdict: result.verdict,
     issues,
     reportPath: result.reportPath
+  };
+}
+
+export async function bundleHtmlContract(
+  input: BundleHtmlReq & { inputPath: string }
+): Promise<BundleHtmlResp> {
+  const result = await bundleStandaloneHtml({
+    inputPath: input.inputPath,
+    outputPath: input.outputPath
+  });
+
+  return {
+    correlationId: input.correlationId,
+    commandId: 'export.bundle_html.v1',
+    filePath: result.outputPath,
+    checksum: result.checksum
+  };
+}
+
+export async function exportPptxContract(
+  input: ExportPptxReq & { htmlPath: string }
+): Promise<ExportPptxResp> {
+  const result = await generatePptx({
+    htmlPath: input.htmlPath,
+    mode: input.mode,
+    outputPath: input.outputPath
+  });
+
+  return {
+    correlationId: input.correlationId,
+    commandId: 'export.pptx.v1',
+    filePath: result.outputPath,
+    slideCount: result.slideCount
+  };
+}
+
+export async function exportPdfContract(
+  input: ExportPdfReq & { htmlPath: string }
+): Promise<ExportPdfResp> {
+  const result = await openForPrint({
+    htmlPath: input.htmlPath,
+    outputPath: input.outputPath,
+    paperSize: input.paperSize
+  });
+
+  return {
+    correlationId: input.correlationId,
+    commandId: 'export.pdf_print.v1',
+    filePath: result.outputPath,
+    pageCount: result.pageCount
   };
 }
 
