@@ -23,7 +23,6 @@
         display: block;
         width: min(960px, calc(100vw - 64px));
         aspect-ratio: 16 / 9;
-        padding: 48px;
         border-radius: 28px;
         background: rgba(255, 255, 255, 0.92);
         box-shadow: 0 32px 80px rgba(15, 23, 42, 0.16);
@@ -37,15 +36,115 @@
   </head>
   <body>
     <deck-stage>
-      <p>Claude Design Deck Example</p>
-      <h1>Stage-based deck surface</h1>
-      <p>Slide scaffolds can expand from this minimal presentation artifact.</p>
+      <section data-screen-label="01 Opening">
+        <p>Claude Design Deck Example</p>
+        <h1>Stage-based deck surface</h1>
+        <p>Slide scaffolds can expand from this minimal presentation artifact.</p>
+      </section>
+      <section data-screen-label="02 Flow">
+        <p>Keyboard and tap navigation</p>
+        <h1>Runtime deck contracts included</h1>
+        <p>Overlay state, local persistence, and slide index events live in the stage shell.</p>
+      </section>
     </deck-stage>
     <script>
       class DeckStage extends HTMLElement {
         connectedCallback() {
-          this.setAttribute('data-screen-label', '01 Title');
-          window.parent?.postMessage?.({ slideIndexChanged: 0 }, '*');
+          this.storageKey = `claude-design-deck:${location.pathname}`;
+          this.stageWidth = 1600;
+          this.stageHeight = 900;
+          this.currentIndex = Number.parseInt(localStorage.getItem(this.storageKey) || '0', 10) || 0;
+
+          if (!this.shadowRoot) {
+            this.attachShadow({ mode: 'open' });
+          }
+
+          this.slides = [...this.querySelectorAll(':scope > section')];
+          this.shadowRoot.innerHTML = `
+            <style>
+              :host {
+                position: relative;
+                display: block;
+                overflow: hidden;
+              }
+
+              .viewport {
+                display: grid;
+                place-items: center;
+                height: 100%;
+              }
+
+              .surface {
+                width: ${this.stageWidth}px;
+                height: ${this.stageHeight}px;
+                transform-origin: top left;
+              }
+
+              ::slotted(section) {
+                box-sizing: border-box;
+                display: block;
+                width: ${this.stageWidth}px;
+                height: ${this.stageHeight}px;
+                padding: 48px;
+              }
+
+              .overlay {
+                position: absolute;
+                right: 20px;
+                bottom: 18px;
+                padding: 8px 12px;
+                border-radius: 999px;
+                background: rgba(15, 23, 42, 0.8);
+                color: white;
+                font: 500 12px/1 system-ui, sans-serif;
+              }
+            </style>
+            <div class="viewport">
+              <div class="surface">
+                <slot></slot>
+              </div>
+            </div>
+            <div class="overlay"></div>
+          `;
+          this.overlay = this.shadowRoot.querySelector('.overlay');
+          this.surface = this.shadowRoot.querySelector('.surface');
+          this.addEventListener('click', (event) => {
+            const midpoint = this.getBoundingClientRect().left + this.clientWidth / 2;
+            this.goToSlide(event.clientX >= midpoint ? this.currentIndex + 1 : this.currentIndex - 1);
+          });
+          window.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') this.goToSlide(this.currentIndex + 1);
+            if (event.key === 'ArrowLeft') this.goToSlide(this.currentIndex - 1);
+          });
+          window.addEventListener('resize', () => this.updateScale());
+          window.addEventListener('beforeprint', () => this.render(true));
+          window.addEventListener('afterprint', () => this.render(false));
+          this.updateScale();
+          this.render();
+        }
+
+        goToSlide(nextIndex) {
+          this.currentIndex = Math.max(0, Math.min(nextIndex, this.slides.length - 1));
+          localStorage.setItem(this.storageKey, String(this.currentIndex));
+          this.render();
+        }
+
+        updateScale() {
+          const scale = Math.min(this.clientWidth / this.stageWidth, this.clientHeight / this.stageHeight);
+          this.surface.style.transform = `scale(${Number.isFinite(scale) ? scale : 1})`;
+        }
+
+        render(showAll = false) {
+          this.slides.forEach((slide, index) => {
+            slide.hidden = showAll ? false : index !== this.currentIndex;
+            slide.setAttribute('data-om-validate', 'slide-root');
+          });
+          const activeSlide = this.slides[this.currentIndex];
+          const label = activeSlide?.getAttribute('data-screen-label') || '01 Title';
+          this.setAttribute('data-screen-label', label);
+          this.overlay.textContent = `${String(this.currentIndex + 1).padStart(2, '0')} / ${String(this.slides.length).padStart(2, '0')}`;
+          window.parent?.postMessage?.({ slideIndexChanged: this.currentIndex }, '*');
+          this.updateScale();
         }
       }
 

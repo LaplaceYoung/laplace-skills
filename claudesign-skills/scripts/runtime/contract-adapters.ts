@@ -37,6 +37,12 @@ import { generatePptx } from '../exports/gen-pptx.js';
 import { openForPrint } from '../exports/open-for-print.js';
 import { registerAssets, unregisterAssets } from '../asset-registry/registry.js';
 import { createArtifact } from '../artifacts/create-artifact.js';
+import {
+  getPublicFileUrl as resolvePublicFileUrl,
+  saveTemplate,
+  setProjectTitleManifest
+} from './template-store.js';
+import { presentFsItemForDownload as presentDownloadItem } from '../exports/present-download.js';
 
 function normalizeProjectId(projectId: string) {
   const normalized = projectId.trim();
@@ -62,14 +68,36 @@ export function buildQuestionsContract(input: BuildQuestionsReq): BuildQuestions
   };
 }
 
-export function saveTemplateContract(input: SaveTemplateReq): SaveTemplateResp {
+export async function saveTemplateContract(input: SaveTemplateReq): Promise<SaveTemplateResp> {
+  const saved = await saveTemplate({
+    projectId: normalizeProjectId(input.projectId),
+    templateName: input.templateName,
+    sourceArtifactPath: input.sourceArtifactPath,
+    tags: input.tags
+  });
+
   return {
     correlationId: input.correlationId,
     commandId: 'runtime.template.save.v1',
-    templateId: `${input.projectId}:${input.templateName}`,
-    version: 1,
-    savedAt: new Date().toISOString()
+    templateId: saved.templateId,
+    version: saved.version,
+    savedAt: saved.savedAt
   };
+}
+
+export async function setProjectTitle(input: { projectId: string; title: string }) {
+  return await setProjectTitleManifest({
+    projectId: normalizeProjectId(input.projectId),
+    title: input.title.trim()
+  });
+}
+
+export async function getPublicFileUrl(filePath: string) {
+  return await resolvePublicFileUrl(filePath);
+}
+
+export async function presentFsItemForDownload(input?: { path?: string; label?: string }) {
+  return await presentDownloadItem(input);
 }
 
 export async function registerAssetsContract(

@@ -2,5 +2,11 @@
   "name": "claude-design-export",
   "version": "0.1.0",
   "description": "Export commands for standalone HTML, PPTX, and print handoff flows",
-  "commands": ["bundle-standalone", "gen-pptx-editable", "gen-pptx-screenshots", "open-for-print"]
+  "commands": [
+    "bundle-standalone",
+    "gen-pptx-editable",
+    "gen-pptx-screenshots",
+    "open-for-print",
+    "present-fs-item-for-download"
+  ]
 }

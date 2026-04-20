@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-function parseGithubUrl(repoUrl: string) {
+export function parseGithubUrl(repoUrl: string) {
   const normalizedUrl = repoUrl.replace(/\.git$/, '');
   const match = normalizedUrl.match(/github\.com[:/](?<owner>[^/]+)\/(?<repo>[^/]+)$/i);
 

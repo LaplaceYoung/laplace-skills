@@ -4,6 +4,8 @@
   "description": "Runtime intake and template commands for Claude Design parity",
   "commands": [
     "runtime.questions.build.v1",
-    "runtime.template.save.v1"
+    "runtime.template.save.v1",
+    "runtime.get_public_url.local",
+    "runtime.set_project_title.local"
   ]
 }

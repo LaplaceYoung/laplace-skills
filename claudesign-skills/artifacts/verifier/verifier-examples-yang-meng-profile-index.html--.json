@@ -1,0 +1,10 @@
+{
+  "path": "examples/yang-meng-profile/index.html",
+  "mode": "directed",
+  "verdict": "pass",
+  "findings": [],
+  "task": "检查个人宣传页的信息层级、控制台错误与结构完整性。",
+  "previewSessionId": "preview-6578616d706c",
+  "doneGateReportPath": "artifacts/verifier/done-gate-examples-yang-meng-profile-index.html.json",
+  "generatedAt": "2026-04-20T17:29:53.407Z"
+}

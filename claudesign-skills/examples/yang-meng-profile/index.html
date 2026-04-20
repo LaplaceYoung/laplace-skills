@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>模态跃迁｜杨萌个人宣传页</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f4eee4;
+        --paper-strong: #e5d7c2;
+        --ink: #122033;
+        --ink-soft: #465166;
+        --copper: #8e623d;
+        --accent: #6e2232;
+        --line: rgba(18, 32, 51, 0.14);
+        --max: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Aptos", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(142, 98, 61, 0.12), transparent 34%),
+          linear-gradient(180deg, #fbf7f1, var(--paper));
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      main {
+        overflow: clip;
+      }
+
+      .section {
+        width: min(var(--max), calc(100vw - 32px));
+        margin: 0 auto;
+      }
+
+      .eyebrow,
+      .small-note,
+      .metric-label {
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+      }
+
+      .hero {
+        padding: 28px 0 72px;
+      }
+
+      .topline {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+        color: var(--ink-soft);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.55fr 0.9fr;
+        gap: clamp(28px, 5vw, 72px);
+        padding-top: clamp(36px, 7vw, 90px);
+        align-items: end;
+      }
+
+      .hero-title {
+        margin: 0;
+        font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+        font-size: clamp(4.6rem, 11vw, 8.8rem);
+        line-height: 0.92;
+        letter-spacing: -0.06em;
+      }
+
+      .hero-subtitle {
+        max-width: 32rem;
+        margin: 28px 0 0;
+        font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+        line-height: 1.6;
+        color: var(--ink-soft);
+      }
+
+      .hero-side {
+        align-self: stretch;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 22px;
+        padding-top: 10px;
+      }
+
+      .hero-stamp {
+        justify-self: end;
+        padding: 10px 14px;
+        border: 1px solid rgba(110, 34, 50, 0.34);
+        color: var(--accent);
+        rotate: -5deg;
+      }
+
+      .hero-summary {
+        padding: 24px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        display: grid;
+        gap: 12px;
+      }
+
+      .metric-strip {
+        width: 100%;
+        overflow: hidden;
+        border-block: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.46);
+      }
+
+      .metric-track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        gap: 40px;
+        padding: 14px 24px;
+        white-space: nowrap;
+      }
+
+      .metric-track span strong {
+        margin-right: 10px;
+        font-size: 1.1rem;
+      }
+
+      .signature {
+        padding: 34px 0 0;
+      }
+
+      .signature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+        padding: 26px 0;
+      }
+
+      .signature-grid article {
+        padding-right: 18px;
+        border-right: 1px solid var(--line);
+      }
+
+      .signature-grid article:last-child {
+        border-right: 0;
+      }
+
+      .signature-grid h3,
+      .case-copy h3,
+      .timeline h3,
+      .working-style h3,
+      .cta h3 {
+        margin: 0 0 14px;
+        font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+        font-size: clamp(1.4rem, 2.2vw, 2rem);
+      }
+
+      .about {
+        padding: 82px 0 38px;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.2fr;
+        gap: clamp(28px, 5vw, 72px);
+        align-items: start;
+      }
+
+      .about-lead {
+        margin: 0;
+        font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+        font-size: clamp(2rem, 4vw, 3.3rem);
+        line-height: 1.08;
+      }
+
+      .about-copy {
+        display: grid;
+        gap: 18px;
+        color: var(--ink-soft);
+        line-height: 1.8;
+      }
+
+      .cases {
+        padding: 34px 0 28px;
+      }
+
+      .case {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(24px, 5vw, 68px);
+        padding: 34px 0;
+        border-top: 1px solid var(--line);
+        align-items: start;
+      }
+
+      .case:nth-child(even) {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+
+      .case:nth-child(even) .case-metric {
+        order: 2;
+      }
+
+      .case-metric {
+        display: grid;
+        align-content: start;
+        gap: 10px;
+      }
+
+      .case-number {
+        font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+        font-size: clamp(3rem, 8vw, 6.2rem);
+        line-height: 0.9;
+        color: var(--copper);
+      }
+
+      .case-copy {
+        display: grid;
+        gap: 14px;
+        line-height: 1.75;
+      }
+
+      .case-points {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--ink-soft);
+      }
+
+      .achievements {
+        padding: 74px 0 34px;
+      }
+
+      .achievements-grid {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: clamp(24px, 5vw, 62px);
+      }
+
+      .achievement-band {
+        display: grid;
+        gap: 14px;
+        padding: 18px 0 24px;
+        border-top: 1px solid var(--line);
+      }
+
+      .achievement-band strong {
+        font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        letter-spacing: -0.05em;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 26px;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 18px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+      }
+
+      .working-style {
+        padding: 64px 0 26px;
+      }
+
+      .working-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+        border-top: 1px solid var(--line);
+        padding-top: 26px;
+      }
+
+      .working-grid p {
+        margin: 0;
+        color: var(--ink-soft);
+        line-height: 1.75;
+      }
+
+      .cta {
+        padding: 72px 0 96px;
+      }
+
+      .cta-shell {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: clamp(24px, 5vw, 58px);
+        padding-top: 28px;
+        border-top: 1px solid var(--line);
+      }
+
+      .cta-copy p {
+        max-width: 36rem;
+        line-height: 1.8;
+        color: var(--ink-soft);
+      }
+
+      .cta-actions {
+        display: grid;
+        align-content: start;
+        gap: 14px;
+      }
+
+      .cta-link {
+        display: inline-flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .small-note {
+        color: var(--ink-soft);
+      }
+
+      @media (max-width: 920px) {
+        .hero-grid,
+        .about-grid,
+        .achievements-grid,
+        .cta-shell,
+        .case,
+        .case:nth-child(even),
+        .working-grid,
+        .signature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .signature-grid article {
+          border-right: 0;
+          padding-right: 0;
+          border-bottom: 1px solid var(--line);
+          padding-bottom: 18px;
+        }
+
+        .timeline-item {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero section">
+        <div class="topline small-note">
+          <span>模态跃迁 · 公司个人宣传页 Demo</span>
+          <span>案例与数据均为模拟演示</span>
+        </div>
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Yang Meng / Growth Narrative Lead</div>
+            <h1 class="hero-title">杨萌</h1>
+            <p class="hero-subtitle">
+              为模态跃迁把复杂 AI 能力翻译成可以被客户理解、信任、采购、复购的增长叙事与品牌体验。
+            </p>
+          </div>
+          <aside class="hero-side">
+            <div class="hero-stamp small-note">Simulated Profile / Claude Design Demo</div>
+            <div class="hero-summary">
+              <div class="metric-label">当前角色</div>
+              <strong>品牌增长负责人</strong>
+              <span>负责品牌表达、关键提案、客户叙事与高价值案例包装。</span>
+            </div>
+            <div class="hero-summary">
+              <div class="metric-label">适合合作的任务</div>
+              <strong>高客单 AI 产品、复杂 B2B 方案、创始人品牌升级</strong>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="metric-strip">
+        <div class="metric-track">
+          <span><strong>12</strong>个模拟品牌升级项目</span>
+          <span><strong>38%</strong>提案转化率提升</span>
+          <span><strong>92%</strong>模拟续约率</span>
+          <span><strong>3.4x</strong>内容线索增长</span>
+          <span><strong>7 天</strong>完成高层提案素材闭环</span>
+        </div>
+      </section>
+
+      <section class="signature section">
+        <div class="signature-grid">
+          <article>
+            <div class="metric-label">Narrative</div>
+            <h3>把技术翻译成业务语言</h3>
+            <p>用一句话价值主张、三层业务故事和高信任素材结构，让复杂产品被非技术决策者快速理解。</p>
+          </article>
+          <article>
+            <div class="metric-label">Systems</div>
+            <h3>把品牌变成可复用增长系统</h3>
+            <p>把提案、案例、官网、创始人表达与客户成功内容接成一条线，让每个触点都服务签约与复购。</p>
+          </article>
+          <article>
+            <div class="metric-label">Taste</div>
+            <h3>把表达做出稀缺感</h3>
+            <p>偏好强排版、清晰信息层级、节制组件和少卡片的高级感页面，让内容本身成为品牌资产。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about section">
+        <div class="about-grid">
+          <div>
+            <div class="eyebrow">About</div>
+            <p class="about-lead">
+              杨萌服务的是“技术很强、表达还没同步升级”的增长阶段团队。
+            </p>
+          </div>
+          <div class="about-copy">
+            <p>
+              在模态跃迁的模拟设定里，杨萌负责把模型能力、产品路线、客户价值和品牌气质组合成一套对外清晰的增长语言。
+              她的工作集中在三类高杠杆场景：关键客户提案、代表案例包装、官网与创始人品牌升级。
+            </p>
+            <p>
+              页面结构采用编辑化单页而非卡片拼贴，让阅读过程更像一篇经过策划的商业专访：信息递进、观点明确、数字收束，最终把注意力导向联系与合作。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cases section">
+        <div class="eyebrow">Selected simulated cases</div>
+
+        <article class="case">
+          <div class="case-metric">
+            <div class="metric-label">Case 01 / Enterprise AI Suite</div>
+            <div class="case-number">+41%</div>
+            <div class="small-note">模拟数据：大型制造客户方案页改版后，关键页面停留时长提升</div>
+          </div>
+          <div class="case-copy">
+            <h3>把“平台能力很多”重组为“决策链条清晰”</h3>
+            <p>
+              将原本按功能堆叠的介绍改写成按决策场景推进的方案结构：业务负责人先看 ROI，技术负责人再看集成与治理，采购与法务最后看交付边界。
+            </p>
+            <ul class="case-points">
+              <li>用一条主叙事替代七块平行卖点</li>
+              <li>把案例证明放到每段论证附近，而非独立陈列</li>
+              <li>减少卡片矩阵，改为双栏论证与分割线节奏</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-metric">
+            <div class="metric-label">Case 02 / Founder Branding</div>
+            <div class="case-number">3.4×</div>
+            <div class="small-note">模拟数据：创始人内容矩阵上线 6 周后，品牌搜索与线索咨询增长</div>
+          </div>
+          <div class="case-copy">
+            <h3>让创始人表达从“观点碎片”升级为“行业坐标”</h3>
+            <p>
+              先定义创始人的三条长期母题，再将演讲、专访、社媒短文和官网文案统一到同一套语言系统里，让市场对人物与公司形成稳定记忆点。
+            </p>
+            <ul class="case-points">
+              <li>建立观点优先级，避免内容输出失焦</li>
+              <li>形成可复用的长文、短文、演讲三种表达模板</li>
+              <li>让个人品牌直接支持公司销售叙事</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-metric">
+            <div class="metric-label">Case 03 / Product Launch</div>
+            <div class="case-number">92%</div>
+            <div class="small-note">模拟数据：季度重点客户续约率，来自上线后 3 个月回访统计</div>
+          </div>
+          <div class="case-copy">
+            <h3>把发布页做成一个可以被销售直接拿去用的成交媒介</h3>
+            <p>
+              发布页围绕“问题、判断、方案、证据、行动”五段展开，每个段落都服务成交而非装饰。整页以大标题、横向数字带和案例段落推进，极少使用独立卡片。
+            </p>
+            <ul class="case-points">
+              <li>把原本离散的 FAQ 合并进论证结构</li>
+              <li>用带状数据段代替冗余统计卡</li>
+              <li>把 CTA 放在客户已经被说服的位置</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="achievements section">
+        <div class="achievements-grid">
+          <div>
+            <div class="eyebrow">Simulated achievements</div>
+            <div class="achievement-band">
+              <div class="metric-label">proposal system</div>
+              <strong>27 套</strong>
+              <span>标准化提案骨架与演示模板沉淀</span>
+            </div>
+            <div class="achievement-band">
+              <div class="metric-label">brand assets</div>
+              <strong>18 个</strong>
+              <span>代表案例叙事资产库与官网长页更新</span>
+            </div>
+            <div class="achievement-band">
+              <div class="metric-label">content engine</div>
+              <strong>6 周</strong>
+              <span>从主题库到发布节奏的完整内容运行周期</span>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <h3>里程碑时间轴</h3>
+            <div class="timeline-item">
+              <div class="metric-label">2025 Q1</div>
+              <div>
+                <strong>建立模态跃迁品牌叙事基线</strong>
+                <p class="small-note">完成官网信息重组、客户提案主模板、行业主张一页纸。</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="metric-label">2025 Q2</div>
+              <div>
+                <strong>上线案例资产流水线</strong>
+                <p class="small-note">把项目复盘、客户证言、业务结果转成可复用的高信任内容模块。</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="metric-label">2025 Q3</div>
+              <div>
+                <strong>启动创始人影响力计划</strong>
+                <p class="small-note">让高层表达、市场活动、销售叙事同步升级，形成外部记忆点。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="working-style section">
+        <div class="eyebrow">How Yang Meng works</div>
+        <div class="working-grid">
+          <div>
+            <h3>先判断，再扩写</h3>
+            <p>先用一页判断清楚价值主张、客户对象与叙事顺序，再进入页面、提案与视觉资产层面。</p>
+          </div>
+          <div>
+            <h3>用节奏替代堆叠</h3>
+            <p>减少卡片，把信息放进版式节奏：大标题、细线、边注、数据带、时间轴与不对称双栏。</p>
+          </div>
+          <div>
+            <h3>让销售和品牌共用一套语言</h3>
+            <p>官网、案例、提案、创始人表达共享同一套句式与证据框架，提升团队协同效率。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta section">
+        <div class="cta-shell">
+          <div class="cta-copy">
+            <div class="eyebrow">Work with Yang Meng</div>
+            <h3>适合需要“高技术产品 × 高质量表达 × 高价值客户沟通”的增长阶段团队。</h3>
+            <p>
+              当前页面为插件能力验证 Demo。案例、数字与头衔为模拟填充，用来验证 Claude Design 在 Codex 环境下的页面生成、预览、验证和导出闭环。
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="cta-link" href="mailto:yangmeng@modal-transition.example">
+              <span>yangmeng@modal-transition.example</span>
+              <span>↗</span>
+            </a>
+            <a class="cta-link" href="#">
+              <span>预约品牌增长诊断会</span>
+              <span>↗</span>
+            </a>
+            <a class="cta-link" href="#">
+              <span>索取代表案例简报</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

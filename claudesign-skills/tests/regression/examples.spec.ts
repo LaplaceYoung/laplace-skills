@@ -16,6 +16,10 @@ const EXAMPLE_CASES = [
   {
     path: 'examples/design-system/index.html',
     text: 'Claude Design Design System Example'
+  },
+  {
+    path: 'examples/yang-meng-profile/index.html',
+    text: '模态跃迁'
   }
 ] as const;
 

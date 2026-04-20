@@ -1,4 +1,4 @@
-﻿export const verifierServerDescription = {
+export const verifierServerDescription = {
   name: 'design-verifier-mcp',
   tools: [
     { name: 'done_gate', commandId: 'verify.done_gate.v1' },

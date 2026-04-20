@@ -1,4 +1,4 @@
-﻿export const previewServerDescription = {
+export const previewServerDescription = {
   name: 'design-preview-mcp',
   tools: [
     { name: 'open_preview', commandId: 'preview.open.v1' },

@@ -10,6 +10,7 @@ const REQUIRED_SKILLS = [
   'claude-design-deck',
   'claude-design-animation',
   'claude-design-tweaks',
+  'claude-design-wireframe',
   'claude-design-export-pptx-editable',
   'claude-design-export-pptx-screenshots',
   'claude-design-export-pdf',

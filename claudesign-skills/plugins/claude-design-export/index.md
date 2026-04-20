@@ -5,3 +5,4 @@ Commands:
 - `gen-pptx-editable`
 - `gen-pptx-screenshots`
 - `open-for-print`
+- `present-fs-item-for-download`
