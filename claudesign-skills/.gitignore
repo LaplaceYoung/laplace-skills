@@ -8,4 +8,6 @@ artifacts/*
 !artifacts/verifier/
 !artifacts/verifier/*.json
 tmp/
+playwright-report/
+test-results/
 *.tsbuildinfo

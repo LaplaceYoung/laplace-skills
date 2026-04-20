@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claude Design Design System Example</title>
+    <style>
+      :root {
+        --surface: #ffffff;
+        --surface-muted: #eff6ff;
+        --ink: #0f172a;
+        --ink-subtle: #475569;
+        --accent: #2563eb;
+        --accent-soft: #dbeafe;
+        font-family: Inter, system-ui, sans-serif;
+        background: #f8fafc;
+        color: var(--ink);
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      main {
+        width: min(960px, calc(100vw - 48px));
+        display: grid;
+        gap: 20px;
+      }
+
+      .panel {
+        padding: 24px;
+        border-radius: 20px;
+        background: var(--surface);
+        border: 1px solid #cbd5e1;
+      }
+
+      .tokens {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+      }
+
+      .token {
+        padding: 16px;
+        border-radius: 16px;
+        background: var(--surface-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="panel">
+        <p>Claude Design Design System Example</p>
+        <h1>Foundational tokens and reusable surfaces</h1>
+        <p>Use this page as the minimal design-system artifact lane.</p>
+      </section>
+      <section class="tokens">
+        <article class="token">
+          <strong>Accent</strong>
+          <p>#2563eb</p>
+        </article>
+        <article class="token">
+          <strong>Surface</strong>
+          <p>#ffffff</p>
+        </article>
+        <article class="token">
+          <strong>Ink</strong>
+          <p>#0f172a</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

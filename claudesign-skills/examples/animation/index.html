@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claude Design Animation Example</title>
+    <style>
+      :root {
+        font-family: Inter, system-ui, sans-serif;
+        background: #020617;
+        color: #e2e8f0;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      main {
+        display: grid;
+        gap: 20px;
+        justify-items: center;
+      }
+
+      .orb {
+        width: 160px;
+        height: 160px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 30%, #67e8f9, #2563eb 68%, #1e1b4b);
+        animation: float 2.6s ease-in-out infinite;
+        box-shadow: 0 0 80px rgba(59, 130, 246, 0.35);
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px) scale(1);
+        }
+        50% {
+          transform: translateY(-18px) scale(1.04);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>Claude Design Animation Example</p>
+      <div class="orb" aria-hidden="true"></div>
+      <p>Motion preview surface for animation-oriented artifact checks.</p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claude Design Prototype Example</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, system-ui, sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at top, #1e293b, #020617 72%);
+      }
+
+      main {
+        width: min(720px, calc(100vw - 48px));
+        padding: 32px;
+        border-radius: 24px;
+        background: rgba(15, 23, 42, 0.82);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      button {
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 18px;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .primary {
+        background: #38bdf8;
+        color: #082f49;
+      }
+
+      .secondary {
+        background: rgba(148, 163, 184, 0.18);
+        color: #e2e8f0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>Claude Design Prototype Example</p>
+      <h1>Interactive prototype surface for rapid direction checks</h1>
+      <p>Use this page as the minimal browser-ready prototype lane for Claude Design parity.</p>
+      <div class="cta-row">
+        <button class="primary" type="button">Primary action</button>
+        <button class="secondary" type="button">Review details</button>
+      </div>
+    </main>
+  </body>
+</html>

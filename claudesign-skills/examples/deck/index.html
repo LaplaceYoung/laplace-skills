@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claude Design Deck Example</title>
+    <style>
+      :root {
+        font-family: Inter, system-ui, sans-serif;
+        background: #f8fafc;
+        color: #0f172a;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #dbeafe, #f8fafc 55%, #ede9fe);
+      }
+
+      deck-stage {
+        display: block;
+        width: min(960px, calc(100vw - 64px));
+        aspect-ratio: 16 / 9;
+        padding: 48px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 32px 80px rgba(15, 23, 42, 0.16);
+      }
+
+      h1 {
+        margin: 0 0 16px;
+        font-size: clamp(2rem, 4vw, 4rem);
+      }
+    </style>
+  </head>
+  <body>
+    <deck-stage>
+      <p>Claude Design Deck Example</p>
+      <h1>Stage-based deck surface</h1>
+      <p>Slide scaffolds can expand from this minimal presentation artifact.</p>
+    </deck-stage>
+    <script>
+      class DeckStage extends HTMLElement {
+        connectedCallback() {
+          this.setAttribute('data-screen-label', '01 Title');
+          window.parent?.postMessage?.({ slideIndexChanged: 0 }, '*');
+        }
+      }
+
+      customElements.define('deck-stage', DeckStage);
+    </script>
+  </body>
+</html>
