@@ -1,0 +1,140 @@
+{
+  "registryVersion": "1.0.0",
+  "frozenAt": "2026-04-20",
+  "commands": [
+    {
+      "id": "runtime.questions.build.v1",
+      "capability": "questions_v2",
+      "owner": "runtime",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "BuildQuestionsReq",
+        "response": "BuildQuestionsResp"
+      }
+    },
+    {
+      "id": "runtime.template.save.v1",
+      "capability": "save_as_template",
+      "owner": "runtime",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "SaveTemplateReq",
+        "response": "SaveTemplateResp"
+      }
+    },
+    {
+      "id": "assets.register.v1",
+      "capability": "register_assets",
+      "owner": "assets",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "RegisterAssetsReq",
+        "response": "RegisterAssetsResp"
+      }
+    },
+    {
+      "id": "assets.unregister.v1",
+      "capability": "unregister_assets",
+      "owner": "assets",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "UnregisterAssetsReq",
+        "response": "UnregisterAssetsResp"
+      }
+    },
+    {
+      "id": "artifact.create.v1",
+      "capability": "html_artifact_create",
+      "owner": "artifacts",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "CreateArtifactReq",
+        "response": "CreateArtifactResp"
+      }
+    },
+    {
+      "id": "preview.open.v1",
+      "capability": "show_html",
+      "owner": "preview",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "OpenPreviewReq",
+        "response": "OpenPreviewResp"
+      }
+    },
+    {
+      "id": "preview.inspect.v1",
+      "capability": "get_webview_logs",
+      "owner": "preview",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "InspectPreviewReq",
+        "response": "InspectPreviewResp"
+      }
+    },
+    {
+      "id": "verify.done_gate.v1",
+      "capability": "done",
+      "owner": "verifier",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "DoneGateReq",
+        "response": "DoneGateResp"
+      }
+    },
+    {
+      "id": "verify.run.v1",
+      "capability": "fork_verifier_agent",
+      "owner": "verifier",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "RunVerifierReq",
+        "response": "RunVerifierResp"
+      }
+    },
+    {
+      "id": "export.pptx.v1",
+      "capability": "gen_pptx",
+      "owner": "export",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "ExportPptxReq",
+        "response": "ExportPptxResp"
+      }
+    },
+    {
+      "id": "export.bundle_html.v1",
+      "capability": "super_inline_html",
+      "owner": "export",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "BundleHtmlReq",
+        "response": "BundleHtmlResp"
+      }
+    },
+    {
+      "id": "export.pdf_print.v1",
+      "capability": "open_for_print",
+      "owner": "export",
+      "lifecycle": "active",
+      "deprecationWindow": "2 minors",
+      "schemas": {
+        "request": "ExportPdfReq",
+        "response": "ExportPdfResp"
+      }
+    }
+  ],
+  "commandCount": 12,
+  "commandsSha256": "22b05b0e69478d89788a9e18a098c8280dcd08e84b58a38db18288c8cf54977b"
+}

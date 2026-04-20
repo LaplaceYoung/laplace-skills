@@ -1,0 +1,8 @@
+﻿node_modules/
+dist/
+coverage/
+artifacts/*
+!artifacts/contracts/
+!artifacts/contracts/*.json
+!artifacts/contracts/README.md
+*.tsbuildinfo

@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "baseline": "phase0-initial-freeze",
+  "comparedTo": null,
+  "registryVersion": "1.0.0",
+  "frozenAt": "2026-04-20",
+  "commandCount": 12,
+  "addedCommands": [
+    "runtime.questions.build.v1",
+    "runtime.template.save.v1",
+    "assets.register.v1",
+    "assets.unregister.v1",
+    "artifact.create.v1",
+    "preview.open.v1",
+    "preview.inspect.v1",
+    "verify.done_gate.v1",
+    "verify.run.v1",
+    "export.pptx.v1",
+    "export.bundle_html.v1",
+    "export.pdf_print.v1"
+  ],
+  "removedCommands": [],
+  "changedCommands": [],
+  "ownerSummary": {
+    "artifacts": 1,
+    "assets": 2,
+    "export": 3,
+    "preview": 2,
+    "runtime": 2,
+    "verifier": 2
+  },
+  "commandsSha256": "22b05b0e69478d89788a9e18a098c8280dcd08e84b58a38db18288c8cf54977b",
+  "generatedAt": "2026-04-20T15:02:11.154Z"
+}

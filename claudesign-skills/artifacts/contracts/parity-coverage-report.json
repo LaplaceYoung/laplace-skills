@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-04-20",
+  "baselineDocPath": "docs/superpowers/mappings/2026-04-20-parity-critical-command-baseline.md",
+  "registryLockPath": "artifacts/contracts/registry-lock.json",
+  "baselineCommandCount": 12,
+  "activeRegistryCommandCount": 12,
+  "mappedCount": 12,
+  "unmappedCount": 0,
+  "coverageRatio": 1,
+  "duplicateBaselineCommandIds": [],
+  "mappedCommandIds": [
+    "artifact.create.v1",
+    "assets.register.v1",
+    "assets.unregister.v1",
+    "export.bundle_html.v1",
+    "export.pdf_print.v1",
+    "export.pptx.v1",
+    "preview.inspect.v1",
+    "preview.open.v1",
+    "runtime.questions.build.v1",
+    "runtime.template.save.v1",
+    "verify.done_gate.v1",
+    "verify.run.v1"
+  ],
+  "unmappedCommandIds": [],
+  "extraActiveCommandIds": [],
+  "status": "pass"
+}
