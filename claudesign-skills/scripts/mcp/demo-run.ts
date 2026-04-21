@@ -7,12 +7,12 @@ import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js'
 const REPO_ROOT = path.resolve(process.cwd());
 
 async function withClient<T>(
-  commandArgs: string[],
+  launcherPath: string,
   action: (client: Client) => Promise<T>
 ) {
   const transport = new StdioClientTransport({
-    command: 'cmd',
-    args: ['/c', 'pnpm', '--dir', REPO_ROOT, 'exec', 'tsx', ...commandArgs],
+    command: process.execPath,
+    args: [path.resolve(REPO_ROOT, launcherPath)],
     cwd: REPO_ROOT,
     stderr: 'pipe'
   });
@@ -40,7 +40,7 @@ function parseToolResult(result: Awaited<ReturnType<Client['callTool']>>) {
 }
 
 async function runDemo() {
-  const runtimeResult = await withClient(['scripts/mcp/runtime-server.ts'], async (client) => {
+  const runtimeResult = await withClient('mcp/design-runtime-mcp/index.mjs', async (client) => {
     const tools = await client.listTools();
     const title = await client.callTool({
       name: 'set_project_title',
@@ -65,7 +65,7 @@ async function runDemo() {
     };
   });
 
-  const previewResult = await withClient(['scripts/mcp/preview-server.ts'], async (client) => {
+  const previewResult = await withClient('mcp/design-preview-mcp/index.mjs', async (client) => {
     const opened = await client.callTool({
       name: 'open_preview',
       arguments: {
@@ -92,7 +92,7 @@ async function runDemo() {
     };
   });
 
-  const verifierResult = await withClient(['scripts/mcp/verifier-server.ts'], async (client) => {
+  const verifierResult = await withClient('mcp/design-verifier-mcp/index.mjs', async (client) => {
     const doneGate = await client.callTool({
       name: 'done_gate',
       arguments: {

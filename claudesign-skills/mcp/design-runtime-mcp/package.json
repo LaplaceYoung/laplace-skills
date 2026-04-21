@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "main": "dist/server.js",
+  "main": "index.mjs",
   "types": "dist/server.d.ts",
+  "bin": {
+    "design-runtime-mcp": "index.mjs"
+  },
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "start": "node index.mjs"
   }
 }

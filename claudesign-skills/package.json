@@ -12,7 +12,9 @@
     "test:integration": "vitest run tests/integration",
     "check:parity-coverage": "node packages/command-registry/scripts/check-parity-coverage.mjs",
     "phase0:verify": "pnpm test:contracts && pnpm test:registry && pnpm run check:parity-coverage",
-    "phase1:verify": "pnpm phase0:verify && pnpm test:integration"
+    "phase1:verify": "pnpm phase0:verify && pnpm test:integration",
+    "claude-design:doctor": "node scripts/doctor/claude-design-doctor.mjs",
+    "claude-design:smoke": "pnpm exec tsx scripts/mcp/demo-run.ts"
   },
   "devDependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",

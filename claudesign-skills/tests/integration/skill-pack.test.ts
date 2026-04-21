@@ -47,4 +47,28 @@ describe('Claude Design skill pack', () => {
     expect(plugin.commands).toContain('connect-github');
     expect(plugin.commands).toContain('import-repo-context');
   });
+
+  it('ships the aggregated claude-design plugin and marketplace entry', () => {
+    const pluginPath = 'plugins/claude-design/.codex-plugin/plugin.json';
+    expect(fs.existsSync(pluginPath)).toBe(true);
+
+    const plugin = JSON.parse(fs.readFileSync(pluginPath, 'utf8')) as {
+      name: string;
+      commands?: string[];
+    };
+    const marketplace = JSON.parse(
+      fs.readFileSync('.agents/plugins/marketplace.json', 'utf8')
+    ) as {
+      plugins: Array<{ name: string; source: { path: string } }>;
+    };
+
+    expect(plugin.name).toBe('claude-design');
+    expect(plugin.commands).toContain('runtime.questions.build.v1');
+    expect(plugin.commands).toContain('run-verifier');
+    expect(plugin.commands).toContain('bundle-standalone');
+    expect(marketplace.plugins.map((item) => item.name)).toEqual([
+      'claude-design',
+      'claude-design-github'
+    ]);
+  });
 });

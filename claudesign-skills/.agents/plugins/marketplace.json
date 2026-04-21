@@ -5,46 +5,10 @@
   },
   "plugins": [
     {
-      "name": "claude-design-runtime",
+      "name": "claude-design",
       "source": {
         "source": "local",
-        "path": "./plugins/claude-design-runtime"
-      },
-      "policy": {
-        "installation": "INSTALLED_BY_DEFAULT",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "claude-design-artifacts",
-      "source": {
-        "source": "local",
-        "path": "./plugins/claude-design-artifacts"
-      },
-      "policy": {
-        "installation": "INSTALLED_BY_DEFAULT",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "claude-design-browser",
-      "source": {
-        "source": "local",
-        "path": "./plugins/claude-design-browser"
-      },
-      "policy": {
-        "installation": "INSTALLED_BY_DEFAULT",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "claude-design-export",
-      "source": {
-        "source": "local",
-        "path": "./plugins/claude-design-export"
+        "path": "./plugins/claude-design"
       },
       "policy": {
         "installation": "INSTALLED_BY_DEFAULT",
