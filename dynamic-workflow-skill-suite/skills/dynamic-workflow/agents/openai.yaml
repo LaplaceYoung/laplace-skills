@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dynamic Workflow"
+  short_description: "Build task-specific Codex workflows"
+  default_prompt: "Use $dynamic-workflow to orchestrate this complex task with success criteria, verification, and a clear stop condition."
+
+policy:
+  allow_implicit_invocation: true

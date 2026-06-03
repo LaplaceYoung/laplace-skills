@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dynamic Code Review"
+  short_description: "Run adversarial code review workflows"
+  default_prompt: "Use $dynamic-code-review to review this change with risk-ranked findings and concrete evidence."
+
+policy:
+  allow_implicit_invocation: true

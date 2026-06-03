@@ -7,7 +7,7 @@
 记录我自己创作、持续优化、并投入日常使用的 skills。  
 目标不是“收集很多”，而是沉淀 **高复用、强实用、可长期维护** 的技能资产。
 
-[![Skill Packs](https://img.shields.io/badge/skill_packs-6-0f766e?style=flat-square)](./)
+[![Skill Packs](https://img.shields.io/badge/skill_packs-7-0f766e?style=flat-square)](./)
 [![Status](https://img.shields.io/badge/status-active-22c55e?style=flat-square)](https://github.com/LaplaceYoung/laplace-skills)
 [![Last Commit](https://img.shields.io/github/last-commit/LaplaceYoung/laplace-skills?style=flat-square)](https://github.com/LaplaceYoung/laplace-skills)
 
@@ -40,6 +40,7 @@
 | [`design-brand-system`](./design-brand-system) | 把品牌视觉语言转成可执行 UI 指南与实现约束 | 60+ 品牌参考、shortlist、agent preset | ✅ Ready | Adapted from [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) · MIT |
 | [`ai-pm-skills-suite`](./ai-pm-skills-suite) | AI PM 工作流技能套件（discovery/PRD/评审/KPI/复盘） | 8 个原创 skills、治理规则、样例、脚本 | 🚧 Active v0.1 | Original |
 | [`harness-friendly-skill-suite`](./harness-friendly-skill-suite) | 面向 agent 仓库改造的 harness-first 套件 | `.harness` 内核、checkpoint resume、delta evaluator | 🚧 Active v0.2 | Original |
+| [`dynamic-workflow-skill-suite`](./dynamic-workflow-skill-suite) | 面向 Codex 的动态工作流与多代理任务 harness 套件 | workflow selection、adversarial verification、loop-until-done | 🚧 Active v0.1 | Original |
 | [`feasibility-ai-offline-writer`](./feasibility-ai-offline-writer) | 可行性研究离线写作技能包 | prompts 资产、outline selector、lookup 脚本 | 🚧 Active v0.1 | Original |
 | [`goodhub-skills`](./goodhub-skills) | GitHub 文档与协作写作技能套件 | README/PR/Issue/Commit/License/CONTRIBUTING 路由 | 🚧 Active v0.1 | Original |
 | [`humanvoice-studio`](./humanvoice-studio) | 让 AI 更“讲人话”的通用写作技能包（含中文专项） | 日常/发帖/学术/长文/小说 + 迭代评测脚本 | 🚧 Active v0.1 | Original |
@@ -79,6 +80,21 @@
 
 目标是降低仓库协作文档成本，让输出可复制、可审阅、可直接使用。
 
+### `dynamic-workflow-skill-suite`
+
+`dynamic-workflow-skill-suite` 把复杂任务先组织成可验证的 execution harness，再进入执行。
+
+覆盖场景：
+- 动态工作流路由（`dynamic-workflow`）
+- 对抗式代码审查（`dynamic-code-review`）
+- 根因调试闭环（`dynamic-debug`）
+- 主来源研究与排序综合（`dynamic-research`）
+
+工程化能力：
+- workflow shape 选择：classify / fan-out / adversarial / generate-filter / tournament / loop
+- 明确 success criteria、verification evidence、stop condition
+- 主线程负责集成与最终验证，子代理负责独立分支任务
+
 ---
 
 ## How to use
@@ -106,6 +122,7 @@ Use goodhub-skills/goodhub-pr to draft a reviewer-friendly PR body.
 laplace-skills/
 ├─ ai-pm-skills-suite/
 ├─ design-brand-system/
+├─ dynamic-workflow-skill-suite/
 ├─ feasibility-ai-offline-writer/
 ├─ harness-friendly-skill-suite/
 ├─ goodhub-skills/

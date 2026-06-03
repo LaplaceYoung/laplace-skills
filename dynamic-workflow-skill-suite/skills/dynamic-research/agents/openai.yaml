@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dynamic Research"
+  short_description: "Research with sources and ranked synthesis"
+  default_prompt: "Use $dynamic-research to investigate this topic with primary sources and ranked conclusions."
+
+policy:
+  allow_implicit_invocation: true

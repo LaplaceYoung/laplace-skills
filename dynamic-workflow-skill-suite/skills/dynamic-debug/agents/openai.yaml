@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dynamic Debug"
+  short_description: "Debug with root-cause verification loops"
+  default_prompt: "Use $dynamic-debug to reproduce, isolate, fix, and verify this failure."
+
+policy:
+  allow_implicit_invocation: true
